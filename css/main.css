@@ -1,0 +1,145 @@
+body {
+    text-align: center;
+    background-color: #E8F6EF;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+h1 {
+    color: #4C4C6D;
+}
+
+.levels button {
+    box-shadow: inset 0px 1px 0px 0px #97c4fe;
+    background: linear-gradient(to bottom, #3d94f6 5%, #4C4C6D 100%);
+    background-color: #3d94f6;
+    border-radius: 6px;
+    border: 1px solid #4C4C6D;
+    display: inline-block;
+    cursor: pointer;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 6px 24px;
+    text-decoration: none;
+    text-shadow: 0px 1px 0px #1570cd;
+}
+
+.levels button:hover {
+    background: linear-gradient(to bottom, #1e62d0 5%, #4C4C6D 100%);
+    background-color: #1e62d0;
+}
+
+.leves button:active {
+    position: relative;
+    top: 1px;
+}
+
+.data {
+    background-color: #FFE194;
+    width: 50px;
+    padding: 10px 30px;
+    margin: 10px auto;
+    color: #4C4C6D;
+    font-size: 16px;
+    font-weight: bold;
+    display: inline-block;
+    border-radius: 10px;
+}
+
+.game-status {
+    display: inline-block;
+    margin: 10px;
+}
+.game-status button {
+    height: 45px;
+    background-color: transparent;
+    font-size: 30px;
+    border: transparent;
+    cursor: pointer;
+}
+
+.lives {
+    height: 35px;
+    margin: auto;
+}
+
+.lives img {
+    width: 35px;
+    height: auto;
+    margin: 5px;
+}
+
+table, td, tr {
+    margin: auto;
+    border: 1px solid black;
+    border-collapse: collapse;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.board td {
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    font-size: 1.4em;
+}
+
+td img {
+    width: 30px;
+    height: auto;
+}
+
+.number1 {
+    color: blue;
+}
+
+.number2 {
+    color: green;
+}
+
+.number3 {
+    color: red;
+}
+
+.number4 {
+    color: darkblue;
+}
+
+.marked {
+    background-color: lightgray;
+}
+
+.game-over-modal {
+    background-color: #B8DFD8;
+    display: none;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    padding: 5px;
+    width: 330px;
+    height: 120px;
+    color: #4C4C6D;
+    opacity: 0.9;
+}
+
+.game-over-modal button {
+    background-color: #FFE194;
+    border-radius: 6px;
+    border: 1px solid #4C4C6D;
+    display: inline-block;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 6px 24px;
+    color: #4C4C6D;
+}
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #4C4C6D;
+    color: white;
+}
