@@ -1,36 +1,8 @@
-// function renderMat(mat, selector) {
-//     var strHTML = '<table border="0"><tbody>';
-//     for (var i = 0; i < mat.length; i++) {
-//         strHTML += '<tr>';
-//         for (var j = 0; j < mat[0].length; j++) {
-//             var cell = mat[i][j];
-//             var className = 'cell cell' + i + '-' + j;
-//             strHTML += '<td ' + strId + 'class="' + className + '"> ' + cell + ' </td>'
-//         }
-//         strHTML += '</tr>'
-//     }
-//     strHTML += '</tbody></table>';
-//     var elContainer = document.querySelector(selector);
-//     elContainer.innerHTML = strHTML;
-// }
-
 function renderCell(location, value) {
     var cellSelector = '.' + getClassName(location)
     var elCell = document.querySelector(cellSelector);
     elCell.innerHTML = value;
 }
-
-// function createMat(ROWS, COLS) {
-//     var mat = []
-//     for (var i = 0; i < ROWS; i++) {
-//         var row = []
-//         for (var j = 0; j < COLS; j++) {
-//             row.push('')
-//         }
-//         mat.push(row)
-//     }
-//     return mat
-// }
 
 function countNegs(board, pos) {
     var count = 0;
@@ -40,7 +12,7 @@ function countNegs(board, pos) {
             if (j < 0 || j >= board[0].length) continue;
             if (i === pos.i && j === pos.j) continue;
             var currCell = board[i][j];
-            if(currCell.isMine) count++;
+            if (currCell.isMine) count++;
         }
     }
     return count;
@@ -109,8 +81,24 @@ function getRandomColor() {
 }
 
 function countTime(startTime, elTimer) {
-        var currTime = new Date().getTime();
-        var msTimeDiff = startTime - currTime;
-        var timeDiffStr = new Date(msTimeDiff).toISOString.slice(17,-1);
-        elTimer.innerText = timeDiffStr;
+    var currTime = new Date().getTime();
+    var msTimeDiff = startTime - currTime;
+    var timeDiffStr = new Date(msTimeDiff).toISOString.slice(17, -1);
+    elTimer.innerText = timeDiffStr;
+}
+
+function copyObjectMat(mat) {
+    var matCopy = [];
+    for (var i = 0; i < mat.length; i++) {
+        var row = [];
+        for (var j = 0; j < mat[0].length; j++) {
+            row.push(copyObject(mat[i][j]));
+        }
+        matCopy.push(row);
+    }
+    return matCopy;
+}
+
+function copyObject(object) {
+    return Object.assign({}, object);
 }
