@@ -106,6 +106,16 @@ h1 {
     top: 300px;
 }
 
+.sound {
+    width: 45px;
+    height: auto;
+    position: absolute;
+    left: 635px;
+    top: 370px;
+    cursor: pointer;
+    filter: drop-shadow(0px 0px 5px rgb(255, 255, 255));
+}
+
 .game-status {
     display: inline-block;
     margin: 10px;
@@ -136,6 +146,7 @@ h1 {
     background-color: white;
     opacity: 0.9;
     margin: auto;
+    height: 80px;
 }
 
 .hints img {
@@ -152,24 +163,23 @@ h1 {
 table, td, tr {
     margin: auto;
     border: 1px solid black;
-    border-collapse: collapse;
     cursor: pointer;
     margin-top: 20px;
     background-color: white;
     border: 2px solid rgb(176, 91, 59);
+    border-radius: 4px;
+
 }
 
-
-
-.board td {
-    width: 40px;
-    height: 40px;
+td {
+    width: 35px;
+    height: 35px;
     text-align: center;
     font-size: 1.4em;
 }
 
 td img {
-    width: 30px;
+    width: 28px;
     height: auto;
 }
 

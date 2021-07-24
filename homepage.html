@@ -6,8 +6,8 @@
 </head>
 
 <body onload="init()">
-    <h1>Welcome to the greatest journey of your life... <br> <span>or not</span></h1>
-    <div class='trans-box'>
+    <h1 class = "fade">Welcome to the greatest journey of your life... <br> <span>or not</span></h1>
+    <div class='fade trans-box'>
         <p>
         <h2>Seems like you have lost your way...</h2>
         OH AREN'T YOU?
@@ -23,11 +23,11 @@
         <br>
         <br> GOOD LUCK
         </p>
-        <button onclick="window.location='game.html'">Sounds cool, Let's go</button>
+        <button onclick="onAccept()">Sounds cool, Let's go</button>
         <button onclick="onReject()">I don't like to take risks, I'll just go back</button>
     </div>
-    <div class="trans-box rejected">
-        <img onclick="window.location='game.html'" src="img/rejected.png">
+    <div class="fade trans-box rejected">
+        <img onclick="onAccept()" src="img/rejected.png">
         <p>
             I didn't really expect you to be brave enough.
             <br> If you regret - click on me and I'll take you to the cave.

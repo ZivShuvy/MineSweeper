@@ -6,9 +6,9 @@
 </head>
 
 <body onload="initGame()">
-    <div class = 'all'>
+    <audio src="sound/cave.mp3"></audio>
     <h1>THE CAVE</h1>
-    <div class = "customize"><button onclick="setCustomizeMode(this)">Customize</button>
+    <div class="customize"><button onclick="setCustomizeMode(this)">Customize</button>
         <span></span>
     </div>
 
@@ -32,6 +32,7 @@
     <span class="safe-clicks-count">3 clicks available</span>
 
     <button class="undo" onclick="onUndoClicked()">Undo</button>
+    <img class="sound" onclick="onSoundClicked()" src="img/sound-on.png">
 
     <div class="lives">
     </div>
@@ -42,14 +43,13 @@
 
     <div class="game-over-modal">
         <h2></h2>
-        <button onclick="initGame()">Play Again</button>
+        <button onclick="initGame()">Try Again</button>
     </div>
-    <div class='footer'>
+    <div class="footer">
         <p>Ziv Shuvy</p>
     </div>
     <script src="js/game.js"></script>
     <script src="js/utils.js"></script>
-</div>
 </body>
 
 </html>

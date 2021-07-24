@@ -39,9 +39,13 @@ var gCustomizeMode = {
 
 var gGameMoves = [];
 
+// Sound
+var gIsSoundOn = true;
+var gBgSound = document.querySelector('audio');
+gBgSound.volume = 0.3;
 
 function initGame() {
-    document.body.style.backgroundImage = 'url(img/gamepage.jpg)';
+    document.body.style.backgroundImage = 'url(img/gamepage.png)';
     if (gTimerInterval) clearInterval(gTimerInterval);
     var elGameOverModal = document.querySelector('.game-over-modal');
     elGameOverModal.style.display = 'none';
@@ -107,10 +111,10 @@ function endGame(isVictory) {
     var elSmileyBtn = document.querySelector('.game-status button');
     if (isVictory) {
         updateBestScore();
-        elH2.innerText = 'Victory! Good Job';
+        elH2.innerText = 'Can\'t believe I see you again! \n You\'re a real champion. \n Well Done.';
         elSmileyBtn.innerText = '😎';
     } else {
-        elH2.innerText = 'You Lost! Try again';
+        elH2.innerText = 'Did you hear this sound? \n I knew it...I just knew it. \n R.I.P';
         elSmileyBtn.innerText = '🤯';
     }
     elGameOverModal.style.display = 'block';
@@ -128,6 +132,11 @@ function checkGameOver(board) {
                 return false;
             }
         }
+    }
+    if (gIsSoundOn) {
+        var winSound = new Audio('sound/win.mp3');
+        winSound.volume = 0.2;
+        winSound.play();
     }
     return true;
 }
@@ -212,6 +221,8 @@ function onCellClicked(elCell, i, j) {
     }
 
     if (gIsFirstClick) {
+        if (gIsSoundOn) gBgSound.play();
+
         startTimer();
         gIsFirstClick = false;
         if (!gCustomizeMode.isDone) {
@@ -236,6 +247,10 @@ function onCellClicked(elCell, i, j) {
             showMines(gBoard);
             elCell.style.backgroundColor = 'rgb(158, 63, 63)';
             elLives.innerHTML = '';
+            if (gIsSoundOn) {
+                var loseSound = new Audio('sound/lose.mp3');
+                loseSound.play();
+            }
             endGame(false);
         }
         else {
@@ -251,6 +266,10 @@ function onCellClicked(elCell, i, j) {
                 elCell.style.backgroundColor = 'transparent';
                 elSmileyBtn.innerText = '😃';
             }, 1000)
+            if (gIsSoundOn) {
+                var bombSound = new Audio('sound/boom.mp3');
+                bombSound.play();
+            }
         }
         gLevel.LIVES--;
     } else {
@@ -369,7 +388,6 @@ function placeRandomMines(board, minesAmount, pos) {
 
 function setGameLevel(elBtn) {
     if (!gGame.isOn) return;
-
     var level = elBtn.className;
     if (level === 'beginner') {
         gLevel.SIZE = 4;
@@ -390,6 +408,7 @@ function setGameLevel(elBtn) {
     clearInterval(gTimerInterval);
     initGame();
 }
+
 
 function createCell() {
     return {
@@ -451,6 +470,10 @@ function onHintClicked(elHint) {
 
     elHint.classList.toggle('active-hint');
     gHints.isOn = !gHints.isOn;
+    if (gIsSoundOn) {
+        var hintSound = gHints.isOn ? new Audio('sound/light-on.mp3') : new Audio('sound/light-on.mp3');
+        hintSound.play();
+    }
     gHints.elCurrHint = elHint;
 }
 
@@ -517,6 +540,11 @@ function onSafeClicked() {
             elCell.style.backgroundColor = 'transparent';
         }
     }, 3000);
+    if (gIsSoundOn) {
+        var safeClickSound = new Audio('sound/safe-click.mp3');
+        safeClickSound.volume = 0.3;
+        safeClickSound.play();
+    }
     saveGameState();
 }
 
@@ -586,4 +614,20 @@ function onUndoClicked() {
     elAvailableSafeClicks.innerText = gSafeClicks + ' clicks available';
     // Undo if a hint clicked
     renderHints();
+}
+
+
+// Sound
+
+function onSoundClicked() {
+    gIsSoundOn = !gIsSoundOn;
+    if (gIsSoundOn) {
+        gBgSound.play();
+        var soundImg = document.querySelector('.sound');
+        soundImg.src = 'img/sound-on.png';
+    } else {
+        gBgSound.pause();
+        var soundImg = document.querySelector('.sound');
+        soundImg.src = 'img/sound-off.png';
+    }
 }
