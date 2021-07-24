@@ -1,0 +1,44 @@
+<html>
+
+<head>
+    <title>Cave Entrance</title>
+    <link rel="stylesheet" href="css/homepage.css">
+</head>
+
+<body onload="init()">
+    <h1 class = "fade">Welcome to the greatest journey of your life... <br> <span>or not</span></h1>
+    <div class='fade trans-box'>
+        <p>
+        <h2>Seems like you have lost your way...</h2>
+        OH AREN'T YOU?
+        <br><br> I guess you haven't heard the terrible stories about this cave.
+        <br> The legend says that all the people who entered the cave - never seen again.
+        <br> Anyway, I am not gonna stop you.
+        <br> But if you find your death inside there...don't blame me.
+        <br><br><br> Are you still there? GREAT.
+        <br> Your mission is to find all the mines locations inside the cave.
+        <br> Once you do it - you will find your way out.
+        <br><br><br> Oh! I almost forgot something.
+        <br> I left you some hints that you'll be able to use during your journey.
+        <br>
+        <br> GOOD LUCK
+        </p>
+        <button onclick="onAccept()">Sounds cool, Let's go</button>
+        <button onclick="onReject()">I don't like to take risks, I'll just go back</button>
+    </div>
+    <div class="fade trans-box rejected">
+        <img onclick="onAccept()" src="img/rejected.png">
+        <p>
+            I didn't really expect you to be brave enough.
+            <br> If you regret - click on me and I'll take you to the cave.
+        </p>
+    </div>
+    <div class='footer'>
+        <p>Ziv Shuvy</p>
+    </div>
+    <script src="js/homepage.js"></script>
+    <script src="js/utils.js"></script>
+
+</body>
+
+</html>
